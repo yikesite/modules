@@ -1,0 +1,23 @@
+<div class="faq-index">
+  <ol> 
+    {% for item in page.children %}  
+      <li><a href="#{{ item.urlname }}">{{ item.name }}</a></li>
+    {% endfor %}
+  </ol>
+</div>
+          
+{% for item in page.children %}
+  <div class="faq-item">
+    <a name="{{ item.urlname }}"></a>
+    <h2>
+      {{ item.name }}
+    </h2>
+    {{ item.body }}
+    <p class="faq-item-links">
+      <a href="#top">Back to top</a>
+      {% if logged_in %}
+        | <a href="{{ item.edit_link }}">Edit</a>
+      {% endif %}
+    </p>
+  </div>
+{% endfor %}​

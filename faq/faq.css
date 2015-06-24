@@ -1,0 +1,20 @@
+/* Styling your FAQs is up to you however here are some styles that 
+have worked well for others. Add these to your main CSS file. */
+.faq-index { 
+  margin-bottom: 40px;
+}
+.faq-item {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+.faq-item h2 {
+  margin-top: 0;
+}
+.faq-item-links a,
+.faq-item-links{
+  color: #bbb;
+}
+.faq-item-links{
+  color: #bbb;
+  margin-bottom: 20px;
+}

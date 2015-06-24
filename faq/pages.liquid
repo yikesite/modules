@@ -1,0 +1,9 @@
+<!-- The FAQ module uses the page heading as part of the navigation 
+of the page. The heading is not needed in the text. If for some 
+reason you wish to allow the FAQ to be viewed on its own page (by 
+linking directly to it) then you can add the following code before 
+{{ content_for_layout }} in the main pages layout file. If you don't 
+wish to direct link to the FAQ item then you can skip this step. -->
+{% if page.parent.modules contains "faq" %}
+  <h1>{{ page.name }}</h1>
+{% endif %}
