@@ -1,0 +1,5 @@
+/* Styling your blog is up to you however here are some styles that 
+have worked well for others. Add these to your main CSS file. */
+.posts .post { 
+  margin-bottom: 40px;
+}
