@@ -1,0 +1,63 @@
+{% comment %}More configuration and installation details at http://kylestetz.github.io/CLNDR/{% endcomment %}
+<div id="full-clndr"></div>
+<script type="text/template" id="full-clndr-template">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="clndr-controls">
+        <div class="clndr-button clndr-previous-button pull-left text-right"><span class="glyphicon glyphicon-chevron-left"></span></div>
+        <div class="clndr-button clndr-next-button pull-right"><span class="glyphicon glyphicon-chevron-right"></span></div>
+        <div class="current-month text-center"><%= month %> <%= year %></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 clndr-grid">
+      <div class="days-of-the-week clearfix">
+        <% _.each(daysOfTheWeek, function(day) { %>
+          <div class="header-day">
+            <%= day %>
+          </div>
+        <% }); %>
+      </div>
+      <div class="days">
+        <% _.each(days, function(day) { %>          
+          <div class="<%= day.classes %>" id="<%= day.id %>"><span class="day-number" title="<% _.each(day.events, function(event) { %><%= event.title %><br/><% }); %>" data-html="true" data-toggle="tooltip"><%= day.day %></span></div>
+        <% }); %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 event-listing">
+      <div class="event-listing-title">Events This Month:</div>
+      <% _.each(eventsThisMonth, function(event) { %>
+        <div class="event-item">
+          <div class="event-item-date"><%= event.date %></div>
+          <div class="event-item-name"><% if (event.file) { %><a href="<%= event.file %>" title="Download File"><span class="glyphicon glyphicon-paperclip"></span></a><% } %> <a href="<%= event.url %>" title="More Info"><%= event.title %></a></div>         
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</script>
+
+<script type="text/javascript"> 
+  var allEvents = [
+    {% for event in page.children_sort_by_custom_date_descending %}
+      {% assign file_src = "" %}
+      {% for file in event.files %}
+        {% if file.extension == 'pdf' %}
+          {% assign file_src = file.src %}
+        {% endif %}
+      {% endfor %}  
+    { date: '{{ event.custom_date }}', title: '{{ event.name }}', url: '{{ event.url }}', file: '{{ file_src }}' },
+    {% endfor %}
+  ];
+
+  $('#full-clndr').clndr({
+    events: allEvents,
+    template: $('#full-clndr-template').html(),
+    clickEvents: {
+      onMonthChange: function(month) {
+        // Re-initialize tooltips. 
+        $('[data-toggle="tooltip"]').tooltip()
+      }
+    },
+  });
+</script>​
