@@ -1,0 +1,13 @@
+﻿{% if page.has_images? %}
+<div id="gallery">
+    <div class="row">
+        {% for img in page.images %}
+        <div class="col-xs-6 col-md-3 {% cycle 'odd', 'even' %}">
+          <a href="{{ img.src }}" rel="{{page.urlname}}" title="{{ img.title }}" class="thumbnail fancybox">
+            <img alt="{{ img.title }}" border="0" src="{{ img.thumb_src }}">
+            </a>
+        </div>
+        {% endfor %}
+    </div>     
+</div>
+{% endif %}
