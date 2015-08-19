@@ -1,0 +1,16 @@
+{% if page.has_images? %}
+  <div class="slick-carousel">
+    {% for img in page.images %}
+    <div>
+
+      <h3>{{ img.title }}</h3>
+
+      <img alt="{{ img.title }}" src="{{ img.thumb_src }}" >
+      <p>
+        {{ img.description }}
+      </p>
+
+    </div>
+    {% endfor %}
+  </div>
+{% endif %}​
