@@ -1,11 +1,15 @@
 {% if page.has_images? %}
   <div class="slick-carousel">
     {% for img in page.images %}
-      <div>       
-        <div class="thumbnail"> 
-          <img alt="{{ img.title }}" src="{{ img.thumb_src }}" >
-        </diV>
-        <h3>{{ img.title }}</h3>          
+      <div>
+        <div class="slick-card">
+          <div class="slick-card-image">
+            <img alt="{{ img.title }}" src="{{ img.thumb_src }}">
+          </div>
+          <div class="slick-card-body">
+            <h3>{{ img.title }}</h3>
+          </div>
+        </div>
       </div>
     {% endfor %}
   </div>
