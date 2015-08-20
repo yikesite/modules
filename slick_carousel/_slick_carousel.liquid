@@ -2,14 +2,16 @@
   <div class="slick-carousel">
     {% for img in page.images %}
     <div>
-
-      <h3>{{ img.title }}</h3>
-
-      <img alt="{{ img.title }}" src="{{ img.thumb_src }}" >
-      <p>
+      
+      
+      <div class="thumbnail"> 
+        <img alt="{{ img.title }}" src="{{ img.thumb_src }}" >
+      </diV>
+      <!-- <h3>{{ img.title }}</h3>
+       <p>
         {{ img.description }}
-      </p>
-
+      </p> -->
+        
     </div>
     {% endfor %}
   </div>
