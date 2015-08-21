@@ -1,5 +1,13 @@
 @charset 'UTF-8';
 
+/* if you have buttons enabled this will align properly them in mobile  */
+@media (max-width: 768px) {
+  .slick-slider {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}
+
 /* Slider */
 .slick-slider {
   position: relative;
@@ -56,7 +64,7 @@
   visibility: hidden;
 }
 .slick-slide:focus {
-  outline: none; 
+  outline: none;
 }
 .slick-slide {
   display: none;
@@ -260,13 +268,13 @@
 }
 
 /* Tablet */
-@media (min-width: 768px) {  
+@media (min-width: 768px) {
   .slick-card .slick-card-body { min-height: 110px }
   .slick-card .slick-card-body h3 { font-size: 16px; }
 }
 /* Desktop */
 @media (min-width: 992px) {
-  
+
 }
 /* Large Desktop */
 @media (min-width: 1200px) {
